@@ -54,22 +54,23 @@ export default function Header({ onOpenQuote }) {
 
             {/* Products Dropdown */}
             <div 
-              className="relative"
+              className="relative group"
               onMouseEnter={() => setProductsDropdownOpen(true)}
               onMouseLeave={() => setProductsDropdownOpen(false)}
             >
-              <button
+              <NavLink
+                to="/products"
+                onClick={closeMenus}
                 className={`flex items-center gap-1.5 text-sm font-semibold transition-colors py-2 px-3 rounded-lg cursor-pointer ${
                   location.pathname.startsWith('/products') 
                     ? 'text-secondary bg-secondary/10' 
                     : 'text-text-main hover:text-secondary hover:bg-gray-50'
                 }`}
-                onClick={() => setProductsDropdownOpen(!productsDropdownOpen)}
-                aria-expanded={productsDropdownOpen}
+                title="Explore All Printing Products & Services"
               >
                 <span>Products & Services</span>
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${productsDropdownOpen ? 'rotate-180' : ''}`} />
-              </button>
+              </NavLink>
 
               {/* Dropdown Menu */}
               {productsDropdownOpen && (
