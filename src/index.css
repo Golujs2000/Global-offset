@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #142B52;
+  --color-primary-dark: #0E1E38;
+  --color-primary-light: #1D3A6F;
+  --color-secondary: #1877F2;
+  --color-secondary-hover: #125ec4;
+  --color-accent: #F59E0B;
+  --color-accent-hover: #D97706;
+  --color-surface: #FFFFFF;
+  --color-surface-light: #F4F7FB;
+  --color-surface-card: #FFFFFF;
+  --color-text-main: #202B3C;
+  --color-text-muted: #556987;
+  --color-text-subtle: #8896AB;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    color: #202B3C;
+    background-color: #FFFFFF;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Custom scrollbar for clean corporate aesthetics */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Printing pattern backgrounds */
+.bg-grid-pattern {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(20, 43, 82, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(20, 43, 82, 0.04) 1px, transparent 1px);
+}
+
+.bg-dots-pattern {
+  background-image: radial-gradient(rgba(24, 119, 242, 0.12) 1.5px, transparent 1.5px);
+  background-size: 18px 18px;
+}
