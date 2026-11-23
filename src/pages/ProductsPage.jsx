@@ -101,8 +101,12 @@ export default function ProductsPage({ onOpenQuote }) {
                   key={product.id}
                   className="bg-white rounded-3xl border border-gray-200/80 shadow-xs hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group"
                 >
-                  {/* Image */}
-                  <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
+                  {/* Image - Clickable */}
+                  <Link 
+                    to={`/products/${product.slug}`}
+                    className="block relative aspect-[16/10] overflow-hidden bg-gray-100 cursor-pointer"
+                    title={`View details for ${product.name}`}
+                  >
                     <img
                       src={product.image}
                       alt={product.imageAlt}
@@ -120,7 +124,7 @@ export default function ProductsPage({ onOpenQuote }) {
                     <span className="absolute bottom-3 left-3 text-white text-xs font-semibold drop-shadow-sm">
                       Patna In-House Press
                     </span>
-                  </div>
+                  </Link>
 
                   {/* Body */}
                   <div className="p-6 flex flex-col grow">

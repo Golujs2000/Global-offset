@@ -11,7 +11,9 @@ export default function ProductGrid() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <SectionHeading
           badge="Featured Printing Products"
+          badgeLink="/products"
           title="Comprehensive Commercial Printing Solutions"
+          titleLink="/products"
           subtitle="Explore our specialized range of custom diaries, registers, examination copies, GST bill books, and bulk paper printing manufactured right here in Patna."
         />
 
@@ -24,8 +26,12 @@ export default function ProductGrid() {
                 key={product.id}
                 className="flex flex-col bg-white rounded-2xl border border-gray-100 hover:border-secondary/40 shadow-xs hover:shadow-xl transition-all duration-300 overflow-hidden group"
               >
-                {/* Image & Badge */}
-                <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
+                {/* Image & Badge - Clickable */}
+                <Link
+                  to={`/products/${product.slug}`}
+                  className="block relative aspect-[16/10] overflow-hidden bg-gray-100 cursor-pointer"
+                  title={`View details for ${product.name}`}
+                >
                   <img
                     src={product.image}
                     alt={product.imageAlt}
@@ -43,13 +49,19 @@ export default function ProductGrid() {
                   <span className="absolute bottom-3 left-3 text-white font-semibold text-xs drop-shadow-sm">
                     Patna Manufacturing
                   </span>
-                </div>
+                </Link>
 
                 {/* Content */}
                 <div className="p-6 flex flex-col grow">
-                  <h3 className="text-xl font-bold text-primary mb-1 group-hover:text-secondary transition-colors">
-                    {product.name}
-                  </h3>
+                  <Link 
+                    to={`/products/${product.slug}`} 
+                    className="block group/title cursor-pointer"
+                    title={`View details for ${product.name}`}
+                  >
+                    <h3 className="text-xl font-bold text-primary mb-1 group-hover/title:text-secondary group-hover:text-secondary hover:underline transition-colors">
+                      {product.name}
+                    </h3>
+                  </Link>
 
                   {product.hindiName && (
                     <div className="text-xs font-bold text-accent mb-1.5">
